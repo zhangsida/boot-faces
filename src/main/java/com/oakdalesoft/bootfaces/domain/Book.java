@@ -1,6 +1,12 @@
 package com.oakdalesoft.bootfaces.domain;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 
 /**
  * Created by Alex on 07/03/2015.
@@ -10,66 +16,84 @@ import javax.persistence.*;
 @Table(schema = "books.public", name = "Book")
 public class Book {
 
-    public Long getId() {
-        return id;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	@Column(nullable = false)
+	private String title;
 
-    public String getTitle() {
-        return title;
-    }
+	@Column(nullable = true)
+	private Float price;
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	@Column(nullable = true)
+	private String description;
 
-    public Float getPrice() {
-        return price;
-    }
+	@Column(nullable = true)
+	private Integer nbofpage;
 
-    public void setPrice(Float price) {
-        this.price = price;
-    }
+	@Column(nullable = true)
+	private Boolean illustrations;
 
-    public String getDescription() {
-        return description;
-    }
+	public Long getId() {
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+		return id;
+	}
 
-    public Integer getnbofpage() {
-        return nbofpage;
-    }
+	public void setId(Long id) {
 
-    public void setnbofpage(Integer nbOfPage) {
-        this.nbofpage = nbOfPage;
-    }
+		this.id = id;
+	}
 
-    public Boolean getIllustrations() {
-        return illustrations;
-    }
+	public String getTitle() {
 
-    public void setIllustrations(Boolean illustrations) {
-        this.illustrations = illustrations;
-    }
+		return title;
+	}
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
-    @Column(nullable = false)
-    private String title;
-    @Column(nullable = true)
-    private Float price;
-    @Column(nullable = true)
-    private String description;
-    @Column(nullable = true)
-    private Integer nbofpage;
-    @Column(nullable = true)
-    private Boolean illustrations;
+	public void setTitle(String title) {
+
+		this.title = title;
+	}
+
+	public Float getPrice() {
+
+		return price;
+	}
+
+	public void setPrice(Float price) {
+
+		this.price = price;
+	}
+
+	public String getDescription() {
+
+		return description;
+	}
+
+	public void setDescription(String description) {
+
+		this.description = description;
+	}
+
+	public Integer getnbofpage() {
+
+		return nbofpage;
+	}
+
+	public void setnbofpage(Integer nbOfPage) {
+
+		this.nbofpage = nbOfPage;
+	}
+
+	public Boolean getIllustrations() {
+
+		return illustrations;
+	}
+
+	public void setIllustrations(Boolean illustrations) {
+
+		this.illustrations = illustrations;
+	}
+
 
 }
